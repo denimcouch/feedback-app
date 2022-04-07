@@ -1,6 +1,9 @@
 function App() {
   return (
-    <h1>Hello from the app</h1>
+    <main className="app">
+      <h1>Hello from the app</h1>
+      <p className="para">Hi!</p>
+    </main>
   )
 }
 
