@@ -3,7 +3,7 @@ import Card from './shared/Card'
 import Button from './shared/Button'
 import RatingSelect from './RatingSelect'
 
-function FeedbackForm() {
+function FeedbackForm({ handleAdd }) {
   const [text, setText] = useState('')
   const [rating, setRating] = useState(10)
   const [btnDisabled, setBtnDisabled] = useState(true)
@@ -13,9 +13,6 @@ function FeedbackForm() {
     if (text === '') {
       setBtnDisabled(true)
       setMessage(null)
-    } else if (text !== '' && text.trim().length <= 10) {
-      setBtnDisabled(true)
-      setMessage('Text must be longer than 10 characters')
     } else {
       setMessage(null)
       setBtnDisabled(false)
@@ -24,9 +21,26 @@ function FeedbackForm() {
     setText(e.target.value)
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    if (text.trim().length > 10) {
+      const newFeeback = {
+        text,
+        rating
+      }
+
+      handleAdd(newFeeback)
+      setText('')
+    } else {
+      setBtnDisabled(true)
+      setMessage('Text must be longer than 10 characters')
+    }  
+  }
+
   return (
     <Card className='feedbackFormCard'>
-      <form className='feedbackForm'>
+      <form onSubmit={handleSubmit} className='feedbackForm'>
         <h2>How would you rate your experience with us?</h2>
         <RatingSelect
           select={(rating) => {
