@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import FeedbackList from './components/FeedbackList'
+import FeedbackStats from './components/FeedbackStats'
 import Header from './components/Header'
 
 function App() {
@@ -13,14 +14,16 @@ function App() {
 
   const deleteFeedback = (id) => {
     console.log('Delete this item!', id)
-    fetch(`http://localhost:5050/feedback/${id}`, { method: 'DELETE' })
-     .then(setFeedback(() => [...feedback.filter((item) => item.id !== id)]))
+    fetch(`http://localhost:5050/feedback/${id}`, { method: 'DELETE' }).then(
+      setFeedback(() => [...feedback.filter((item) => item.id !== id)])
+    )
   }
 
   return (
     <>
       <Header text='Hello World' />
       <main className='app container'>
+        <FeedbackStats feedback={feedback} />
         <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
       </main>
     </>
