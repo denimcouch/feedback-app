@@ -1,5 +1,5 @@
 import Card from './shared/Card'
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
 import { MdDelete } from 'react-icons/md'
 
 function FeedbackItem({ feedback, handleDelete }) {
@@ -8,10 +8,7 @@ function FeedbackItem({ feedback, handleDelete }) {
   return (
     <Card className='feedbackCard'>
       <div className='num-display feedbackCard__num-display'>{rating}</div>
-      <button 
-        className="close"
-        onClick={() => handleDelete(id)}
-      >
+      <button className='close' onClick={() => handleDelete(id)}>
         <MdDelete fontSize={24} />
       </button>
       <div className='text-display feedbackCard__text-display'>{text}</div>
@@ -27,7 +24,7 @@ FeedbackItem.defaultProps = {
 }
 
 FeedbackItem.propTypes = {
-  feedback: PropTypes.object.isRequired
+  feedback: PropTypes.object.isRequired,
 }
 
 export default FeedbackItem

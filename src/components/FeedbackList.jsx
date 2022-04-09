@@ -1,5 +1,5 @@
 import FeedbackItem from './FeedbackItem'
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
 
 function FeedbackList({ feedback, handleDelete }) {
   if (!feedback || feedback.length === 0) {
@@ -13,7 +13,7 @@ function FeedbackList({ feedback, handleDelete }) {
   return (
     <div className='feedbackList'>
       {feedback.map((item, index) => (
-        <FeedbackItem key={index} feedback={item} handleDelete={handleDelete}/>
+        <FeedbackItem key={index} feedback={item} handleDelete={handleDelete} />
       ))}
     </div>
   )
@@ -24,9 +24,9 @@ FeedbackList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       text: PropTypes.string.isRequired,
-      rating: PropTypes.number.isRequired
+      rating: PropTypes.number.isRequired,
     })
-  ).isRequired
+  ).isRequired,
 }
 
 export default FeedbackList
