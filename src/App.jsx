@@ -5,11 +5,11 @@ import Header from './components/Header'
 
 function App() {
   const [feedback, setFeedback] = useState([])
-  
+
   useEffect(() => {
     fetch('http://localhost:5050/feedback')
-    .then( res => res.json())
-    .then( data => setFeedback(() => data))
+      .then((res) => res.json())
+      .then((data) => setFeedback(() => data))
   }, [])
 
   return (
