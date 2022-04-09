@@ -1,4 +1,5 @@
 import Card from './shared/Card'
+import PropTypes from "prop-types"
 
 function FeedbackItem({ feedback }) {
   const { rating, text } = feedback
@@ -15,6 +16,10 @@ FeedbackItem.defaultProps = {
     rating: 7,
     text: 'Dummy text is here!',
   },
+}
+
+FeedbackItem.propTypes = {
+  feedback: PropTypes.object.isRequired
 }
 
 export default FeedbackItem
