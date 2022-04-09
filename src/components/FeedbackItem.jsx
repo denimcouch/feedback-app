@@ -1,11 +1,18 @@
 import Card from './shared/Card'
 import PropTypes from "prop-types"
+import { MdDelete } from 'react-icons/md'
 
 function FeedbackItem({ feedback }) {
   const { rating, text } = feedback
   return (
     <Card className='feedbackCard'>
       <div className='num-display feedbackCard__num-display'>{rating}</div>
+      <button 
+        className="close"
+        onClick={() => handleDelete(id)}
+      >
+        <MdDelete fontSize={24} />
+      </button>
       <div className='text-display feedbackCard__text-display'>{text}</div>
     </Card>
   )
