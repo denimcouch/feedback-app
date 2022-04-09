@@ -22,7 +22,7 @@ function App() {
 
   return (
     <>
-      <Header text='Hello World' />
+      <Header />
       <main className='app container'>
         <FeedbackForm />
         <FeedbackStats feedback={feedback} />
