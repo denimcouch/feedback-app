@@ -139,10 +139,20 @@ input:focus {
   cursor: pointer;
   background: none;
   border: none;
+  transition: color .2s ease-in-out;
 }
 
 .edit {
   right: 40px;
+}
+
+.close {
+  color: purple;
+}
+
+.close:hover {
+  color: #c52c2c;
+  transition: color .2s ease-in-out;
 }
 
 .btn {
