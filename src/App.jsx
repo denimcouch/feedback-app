@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import FeedbackList from './components/FeedbackList'
+import FeedbackForm from './components/FeedbackForm'
 import FeedbackStats from './components/FeedbackStats'
 import Header from './components/Header'
 
@@ -23,6 +24,7 @@ function App() {
     <>
       <Header text='Hello World' />
       <main className='app container'>
+        <FeedbackForm />
         <FeedbackStats feedback={feedback} />
         <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
       </main>
