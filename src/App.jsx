@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import FeedbackItem from './components/FeedbackItem'
 import FeedbackList from './components/FeedbackList'
 import Header from './components/Header'
 
