@@ -31,7 +31,7 @@ function App() {
 
     fetch('http://localhost:5050/feedback', postOptions)
       .then((res) => res.json())
-      .then((data) => setFeedback(() => [...feedback, data]))
+      .then((data) => setFeedback(() => [data, ...feedback]))
   }
 
   return (
