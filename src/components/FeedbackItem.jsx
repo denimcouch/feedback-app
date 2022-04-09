@@ -1,9 +1,5 @@
-import { useState } from 'react'
-
-function FeedbackItem() {
-  const [rating, setRating] = useState(7)
-  const [text, setText] = useState('This is what feedback text should look like.')
-
+function FeedbackItem({ feedback }) {
+  const { rating, text } = feedback
   return (
     <div className="card feedbackCard">
       <div className="num-display feedbackCard__num-display">
@@ -14,6 +10,13 @@ function FeedbackItem() {
       </div>
     </div>
   )
+}
+
+FeedbackItem.defaultProps = {
+  feedback: {
+    rating: 7,
+    text: 'Dummy text is here!'
+  }
 }
 
 export default FeedbackItem
