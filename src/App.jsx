@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import FeedbackList from './components/FeedbackList'
 import FeedbackForm from './components/FeedbackForm'
 import FeedbackStats from './components/FeedbackStats'
 import Header from './components/Header'
+import AboutPage from './pages/AboutPage'
 
 function App() {
   const [feedback, setFeedback] = useState([])
@@ -35,14 +37,28 @@ function App() {
   }
 
   return (
-    <>
+    <Router>
       <Header />
       <main className='app container'>
-        <FeedbackForm handleAdd={addFeedback} />
-        <FeedbackStats feedback={feedback} />
-        <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
+        <Routes>
+          <Route
+            exact
+            path='/'
+            element={
+              <>
+                <FeedbackForm handleAdd={addFeedback} />
+                <FeedbackStats feedback={feedback} />
+                <FeedbackList
+                  feedback={feedback}
+                  handleDelete={deleteFeedback}
+                />
+              </>
+            }
+          />
+          <Route path='/about' element={<AboutPage />} />
+        </Routes>
       </main>
-    </>
+    </Router>
   )
 }
 
