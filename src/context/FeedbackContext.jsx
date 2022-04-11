@@ -15,9 +15,9 @@ export const FeedbackProvider = ({ children }) => {
   }, [])
 
   const fetchFeedback = async () => {
-    const data = await fetch(
-      'http://localhost:5050/feedback?_sort=id&order=desc'
-    ).then((res) => res.json())
+    const data = await fetch('/feedback?_sort=id&order=desc').then((res) =>
+      res.json()
+    )
     setFeedback(data)
     setLoading(false)
   }
@@ -32,13 +32,13 @@ export const FeedbackProvider = ({ children }) => {
       body: JSON.stringify(feedbackObj),
     }
 
-    fetch('http://localhost:5050/feedback', postOptions)
+    fetch('/feedback', postOptions)
       .then((res) => res.json())
       .then((data) => setFeedback(() => [data, ...feedback]))
   }
 
   const deleteFeedback = (id) => {
-    fetch(`http://localhost:5050/feedback/${id}`, { method: 'DELETE' }).then(
+    fetch(`/feedback/${id}`, { method: 'DELETE' }).then(
       setFeedback(() => [...feedback.filter((item) => item.id !== id)])
     )
   }
