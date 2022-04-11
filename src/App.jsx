@@ -5,6 +5,7 @@ import FeedbackForm from './components/FeedbackForm'
 import FeedbackStats from './components/FeedbackStats'
 import Header from './components/Header'
 import AboutPage from './pages/AboutPage'
+import AboutIconLink from './components/AboutIconLink'
 
 function App() {
   const [feedback, setFeedback] = useState([])
@@ -52,6 +53,7 @@ function App() {
                   feedback={feedback}
                   handleDelete={deleteFeedback}
                 />
+                <AboutIconLink />
               </>
             }
           />
