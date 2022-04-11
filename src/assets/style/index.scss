@@ -140,14 +140,17 @@ input:focus {
   background: none;
   border: none;
   transition: color .2s ease-in-out;
+
+  color: purple;
 }
 
 .edit {
-  right: 40px;
+  right: 45px;
 }
 
-.close {
-  color: purple;
+.edit:hover {
+  color: #3c3ce7;
+  transition: color .2s ease-in-out;
 }
 
 .close:hover {
