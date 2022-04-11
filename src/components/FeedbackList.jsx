@@ -2,9 +2,19 @@ import FeedbackItem from './FeedbackItem'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useContext } from 'react'
 import FeedbackContext from '../context/FeedbackContext'
+import { CircularProgress } from '@mui/material'
+import Card from './shared/Card'
 
 function FeedbackList() {
-  const { feedback } = useContext(FeedbackContext)
+  const { feedback, loading } = useContext(FeedbackContext)
+
+  if (loading) {
+    return (
+      <Card>
+        <CircularProgress color="secondary" size={100}/>
+      </Card>
+    )
+  }
 
   if (!feedback || feedback.length === 0) {
     return (
