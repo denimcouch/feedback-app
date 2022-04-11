@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import FeedbackContext from '../context/FeedbackContext'
 import Card from './shared/Card'
 import Button from './shared/Button'
 import RatingSelect from './RatingSelect'
 
 function FeedbackForm({ handleAdd }) {
+  const { addFeedback } = useContext(FeedbackContext)
+
   const [text, setText] = useState('')
   const [rating, setRating] = useState(10)
   const [btnDisabled, setBtnDisabled] = useState(true)
@@ -25,17 +28,17 @@ function FeedbackForm({ handleAdd }) {
     e.preventDefault()
 
     if (text.trim().length > 10) {
-      const newFeeback = {
+      const newFeedback = {
         text,
-        rating
+        rating,
       }
 
-      handleAdd(newFeeback)
+      addFeedback(newFeedback)
       setText('')
     } else {
       setBtnDisabled(true)
       setMessage('Text must be longer than 10 characters')
-    }  
+    }
   }
 
   return (
