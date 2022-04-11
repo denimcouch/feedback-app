@@ -4,10 +4,12 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "start": "concurrently \"vite\" \"json-server --watch db.json --port 5050\"",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "concurrently": "^7.1.0",
     "dart-sass": "^1.25.0",
     "framer-motion": "^4.1.17",
     "prop-types": "^15.8.1",
